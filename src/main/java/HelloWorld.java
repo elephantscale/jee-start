@@ -6,14 +6,6 @@ import javax.servlet.http.*;
 // Extend HttpServlet class
 public class HelloWorld extends HttpServlet {
  
-  private String message;
-
-  public void init() throws ServletException
-  {
-      // Do required initialization
-      message = "Hello World";
-  }
-
   public void doGet(HttpServletRequest request,
                     HttpServletResponse response)
             throws ServletException, IOException
@@ -23,9 +15,11 @@ public class HelloWorld extends HttpServlet {
 
       // Actual logic goes here.
       PrintWriter out = response.getWriter();
-      out.println("<h1>" + message + "</h1>");
+
+      out.println("<h1>Hello World</h1>");
+      out.println("<h2>" + new HelloWorldHelper().getMessage() + "</h2>");
   }
-  
+
   public void destroy()
   {
       // do nothing.
